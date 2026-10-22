@@ -1,0 +1,8 @@
+{
+  "paths": [
+    "."
+  ],
+  "excludedTopLevel": [
+    "_sync-auto"
+  ]
+}

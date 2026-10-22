@@ -1,0 +1,49 @@
+一時共有フォルダ — 自宅と事務所の送受信
+========================================
+
+このフォルダは YouTube 用の「送る／作業開始」とは別です。
+動画以外のメモ・zip・ルール案など、PC間で共有したいものを入れます。
+
+置き場所
+--------
+ドライブの直下の「一時共有」です（例: 事務所 F:\一時共有）。
+youtube フォルダの中ではありません。
+ドライブの文字（F など）は PC ごとに違っても構いません。
+その PC で「一時共有」フォルダを開き、中の bat を実行してください。
+
+初回（事務所で GitHub に上げるとき）
+------------------------------------
+1. GitHub で空のリポジトリを作成します。
+   名前: ichiji-kyoyu
+   公開／非公開はお好みで（youtube と同じアカウント mesio06-ops 推奨）
+2. このフォルダで git-setup.bat を1回実行
+3. コマンドプロンプトまたは PowerShell でこのフォルダに移動し:
+   git init
+   git branch -M main
+   git remote add origin https://github.com/mesio06-ops/ichiji-kyoyu.git
+   git add .
+   git commit -m "初回: youtube 内の一時共有から移行"
+   git push -u origin main
+4. 以後は「送る.bat」「作業開始.bat」を使います（youtube と同じ感覚）
+
+もう片方の PC（自宅など）の初回
+--------------------------------
+1. 作業用ドライブの直下に「一時共有」フォルダを用意
+2. git clone https://github.com/mesio06-ops/ichiji-kyoyu.git 一時共有
+   （既に空の「一時共有」がある場合は、別名で clone してから中身を移す）
+3. git-setup.bat を1回実行
+4. 「作業開始.bat」で最新を取得
+
+日常
+----
+・送りたいとき: 送る.bat
+・受けたいとき: 作業開始.bat
+・自動送る: youtube と同様（常駐／定期）
+
+YouTube 側
+----------
+youtube\一時共有 は廃止しました。昔のパスは使わないでください。
+
+GitHub
+------
+https://github.com/mesio06-ops/ichiji-kyoyu

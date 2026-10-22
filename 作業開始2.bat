@@ -1,0 +1,13 @@
+@echo off
+chcp 65001 >nul
+cd /d "%~dp0"
+if not exist ".git" (
+    echo [ERROR] Run this file from the youtube folder.
+    pause
+    exit /b 1
+)
+set "PATH=C:\Program Files\Git\cmd;%PATH%"
+node scripts/work-start.mjs
+set "EXITCODE=%ERRORLEVEL%"
+pause
+exit /b %EXITCODE%
